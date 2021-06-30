@@ -1,7 +1,15 @@
 package com.how2java.springboot.pojo;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name="hero")
 public class Category {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY )
+    @Column(name ="name")
     private String name;
+    @Column(name="hp")
     private int hp;
 
     public String getName() {
@@ -18,5 +26,9 @@ public class Category {
 
     public int getHp() {
         return hp;
+    }
+    @Override
+    public String toString(){
+        return "Category [hp="+ hp +",name="+ name +"]";
     }
 }
